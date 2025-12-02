@@ -1,0 +1,115 @@
+---
+import "../styles/global.css";
+
+const pageTitle = "Home";
+---
+
+<script>
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const navbar = document.getElementById("navbar");
+        const scrollLabel = document.getElementById("scroll-label");
+        if (navbar && scrollLabel) {
+          navbar.classList.toggle("scrolled", window.scrollY > 50);
+          scrollLabel.textContent =
+            window.scrollY > 50 ? "SCROLL_ACTIVE" : "TOP_VIEW";
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+</script>
+
+<nav id="navbar" class="navbar">
+  <div>
+    <span class="nav-indicator"></span>DUB_DEV
+    <span>///</span> JUNIOR
+  </div>
+  <div>
+    <span class="font-mono" id="scroll-label">TOP VIEW</span>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span id="theme-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-moon"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z"
+          ></path></svg
+        >
+      </span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+    font-family: "JetBrains Mono", monospace;
+
+    /* Estado inicial: Transparente + Mix Blend Difference */
+    background-color: transparent;
+    color: red;
+    mix-blend-mode: difference; /* define cómo el contenido de un elemento se combina con el contenido de su elemento padre y su fondo */
+  }
+
+  nav.scrolled {
+    background-color: var(--bg);
+    color: var(--text);
+    border-bottom: 1px solid var(--line);
+    /* mix-blend-mode: normal; /* Desactivamos el blend mode */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .nav-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    display: inline-block;
+    margin-right: 0.5rem;
+    /* animation: pulse 2s infinite; */
+  }
+
+  .navbar div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+  }
+
+  .navbar div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .theme-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+  }
+</style>
