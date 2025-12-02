@@ -5,6 +5,29 @@ const pageTitle = "Home";
 ---
 
 <script>
+
+  /*
+   let ticking = false;
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    requestAnimationFrame(updateNavbar);
+    ticking = true;
+  }
+});
+
+function updateNavbar() {
+  const navbar = document.getElementById("navbar");
+  const scrollLabel = document.getElementById("scroll-label");
+
+  const scrolled = window.scrollY > 50;
+  navbar?.classList.toggle("scrolled", scrolled);
+  if (scrollLabel) scrollLabel.textContent = scrolled ? "SCROLL_ACTIVE" : "TOP_VIEW";
+
+  ticking = false;
+}
+
+   */
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
@@ -29,7 +52,7 @@ const pageTitle = "Home";
     <span>///</span> JUNIOR
   </div>
   <div>
-    <span class="font-mono" id="scroll-label">TOP VIEW</span>
+    <span class="text-section" id="scroll-label">TOP VIEW</span>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
       <span id="theme-icon">
         <svg
@@ -49,7 +72,7 @@ const pageTitle = "Home";
 </nav>
 
 <style>
-  nav {
+  .navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -63,11 +86,11 @@ const pageTitle = "Home";
 
     /* Estado inicial: Transparente + Mix Blend Difference */
     background-color: transparent;
-    color: red;
+    color: #dbcece;
     mix-blend-mode: difference; /* define cómo el contenido de un elemento se combina con el contenido de su elemento padre y su fondo */
   }
 
-  nav.scrolled {
+  .navbar.scrolled {
     background-color: var(--bg);
     color: var(--text);
     border-bottom: 1px solid var(--line);
@@ -99,7 +122,7 @@ const pageTitle = "Home";
     }
   }
 
-  nav.scrolled .nav-indicator {
+  .navbar.scrolled .nav-indicator {
     background-color: var(--accent);
   }
 
@@ -119,23 +142,24 @@ const pageTitle = "Home";
   }
   .theme-btn {
     background: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(180, 178, 178, 0.2);
     border-radius: 50%;
     padding: 0.5rem;
     cursor: pointer;
-    color: white;
+    color: #dbcece;
     display: flex;
     align-items: center;
     transition: all 0.3s;
   }
-
-  .nav.scrolled .theme-btn {
+  .navbar.scrolled .text-section {
+    color: #c73a3a81;
+  }
+  .navbar.scrolled .theme-btn {
     border-color: var(--line);
     color: var(--text);
   }
 
-  nav.scrolled .theme-btn:hover {
+  .navbar.scrolled .theme-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
   }
-  
 </style>

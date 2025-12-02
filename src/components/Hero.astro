@@ -1,0 +1,79 @@
+---
+import "../styles/global.css";
+---
+
+<script></script>
+<section class="hero-section">
+  <div class="hero-container">
+    <div>
+      <div class="status-badge">[ Status: Freelance ]</div>
+      <div class="text-container">
+        LOC: 8.5° N, 31.4° E — <br /> MARE TRANQUILLITATIS, MOON
+      </div>
+    </div>
+    <div class="title-container">
+      <h1 class="big-title title-ghost">DIGITAL</h1>
+      <h1 class="big-title title-accent">ARCHITECT</h1>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding: 8rem 1.5rem 4rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    font-family: var(--font-grotesk);
+  }
+
+  .hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .hero-container div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  .big-title {
+    font-size: 12vw;
+    line-height: 0.8;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .title-ghost {
+    mix-blend-mode: overlay;
+    opacity: 0.1;
+  }
+  .title-accent {
+    color: var(--accent);
+    position: relative;
+    z-index: 10;
+    margin-top: -1.7vw;
+  }
+
+  .text-container {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: right;
+    opacity: 0.5;
+    background-color: rgba(179, 155, 119, 0.233);
+  }
+
+</style>
