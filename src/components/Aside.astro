@@ -1,0 +1,195 @@
+---
+import "../styles/global.css";
+---
+
+<aside class="aside-section">
+  <div class="avatar-container">
+    <div class="avatar-frame">
+      <img
+        src="/images/Face.png"
+        alt="Miguel's profile photo"
+        class="avatar-image"
+      />
+      <span class="avatar-badge"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M17 7l-10 10"></path><path d="M8 7l9 0l0 9"></path></svg
+        ></span
+      >
+    </div>
+    <h2 class="avatar-title">Miguel P.</h2>
+    <p class="avatar-text">Fronted Developer</p>
+  </div>
+  <!-- Biodata Section -->
+  <div class="biodata-container">
+    <div class="biodata-text-section">
+      <i class="terminal"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-prompt"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M5 7l5 5l-5 5"></path><path d="M13 17l6 0"></path></svg
+        ><h3>Bio_Data</h3></i
+      >
+      <p class="biodata-text">
+        Obsesionado con la performance web y los sistemas de diseño escalables.
+        Transformo caos complejo en interfaces simples.
+      </p>
+    </div>
+  </div>
+  <div class="stack-container">
+    <i class="terminal"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-stack-front"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M12 4l-8 4l8 4l8 -4l-8 -4"
+          fill="currentColor"></path><path d="M8 14l-4 2l8 4l8 -4l-4 -2"
+        ></path><path d="M8 10l-4 2l8 4l8 -4l-4 -2"></path></svg
+      ><h3>Core_Stack</h3></i
+    >
+    <div class="stack-grid">
+      <div class="stack-item"><span class="dot"></span>React</div>
+      <div class="stack-item"><span class="dot"></span>Python</div>
+      <div class="stack-item"><span class="dot"></span>HTML / CSS</div>
+      <div class="stack-item"><span class="dot"></span>No soy dios</div>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .aside-section {
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 2rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .avatar-container {
+    margin-bottom: 2rem;
+    cursor: crosshair;
+  }
+
+  .avatar-frame {
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    transition: transform 0.3s ease;
+  }
+
+  .avatar-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--accent);
+    color: var(--bg);
+    padding: 0.25rem;
+    display: flex;
+  }
+
+  .avatar-container h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-grotesk);
+  }
+
+  .avatar-container p {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+  }
+  .biodata-container {
+    flex-grow: 1;
+  }
+  .terminal {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+
+    & h3 {
+      font-style: normal;
+      font-family: var(--font-mono);
+    }
+  }
+
+  .biodata-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    font-family: var(--font-grotesk);
+  }
+
+  .stack-container {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+  .stack-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+  }
+  .dot {
+    width: 4px;
+    height: 4px;
+    background-color: red;
+    border-radius: 50%;
+  }
+</style>

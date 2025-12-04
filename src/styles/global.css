@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: "Space Grotesk";
-  src: url("/fonts/SpaceGrotesk-VariableFont_wght.woff") format("woff"),
-    url("/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/SpaceGrotesk-Bold.woff") format("woff"),
+    url("/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -35,12 +35,6 @@
   }
 }
 
-body {
-  /* 4. Add accessible line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-}
 
 /* 6. Improve media defaults */
 img,

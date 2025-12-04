@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+---
+
+<div class="footer-container">
+  <div class="text-carrusel-container">
+    <div class="text-carrusel-content">
+      <p>Miguel Páez <span class="spacer">—</span></p>
+    </div>
+    <div class="text-carrusel-content">
+      <p>Miguel Páez <span class="spacer">—</span></p>
+    </div>
+    <div class="text-carrusel-content">
+      <p>Miguel Páez <span class="spacer">—</span></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .footer-container {
+    width: 100%;
+    border-top: 1px solid var(--line);
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .text-carrusel-container {
+    display: flex;
+    width: fit-content;
+    pointer-events: none;
+  }
+  
+  .text-carrusel-content {
+    opacity: 0.1;
+    display: flex;
+    animation: carrusel-infinite 8s linear infinite;
+  }
+
+  .text-carrusel-content p {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    font-size: 6vw;
+    white-space: nowrap;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    
+  }
+
+  .spacer {
+    padding: 0 3vw;
+  }
+
+  @keyframes carrusel-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+

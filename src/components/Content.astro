@@ -1,0 +1,165 @@
+---
+import "../styles/global.css";
+---
+
+<section class="content-col">
+  <!--Sticky Header -->
+  <div class="sticky-header">
+    <div>
+      <i class="terminal"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-codesandbox"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M20 7.5v9l-4 2.25l-4 2.25l-4 -2.25l-4 -2.25v-9l4 -2.25l4 -2.25l4 2.25z"
+          ></path><path d="M12 12l4 -2.25l4 -2.25"></path><path d="M12 12l0 9"
+          ></path><path d="M12 12l-4 -2.25l-4 -2.25"></path><path
+            d="M20 12l-4 2v4.75"></path><path d="M4 12l4 2l0 4.75"></path><path
+            d="M8 5.25l4 2.25l4 -2.25"></path></svg
+        ><h3>Works</h3></i
+      >
+    </div>
+    <span class="dot"></span>
+  </div>
+  <div class="project-list">
+    <div class="project-item">
+      <div class="project-content">
+        <div class="text-content">
+          <span class="project-num">01 / 2025</span>
+          <h3 class="project-title">Neo_bank</h3>
+        </div>
+        <div class="cat-content">
+          <span class="project-cat">Personal Blog</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project-content">
+        <div class="text-content">
+          <span class="project-num">01 / 2025</span>
+          <h3 class="project-title">PS_Blog</h3>
+        </div>
+        <div class="cat-content">
+          <span class="project-cat">Personal Blog</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project-content">
+        <div class="text-content">
+          <span class="project-num">01 / 2025</span>
+          <h3 class="project-title">PS_Blog</h3>
+        </div>
+        <div class="cat-content">
+          <span class="project-cat">Personal Blog</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-col {
+    background-color: var(--bg);
+  }
+
+  .sticky-header {
+    position: sticky;
+    top: 75px;
+    background-color: var(--bg);
+    padding: 2rem;
+    border-bottom: 1px solid var(--line);
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    background-color: rgba(var(--bg), 0.9);
+  }
+  .terminal {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+
+    & h3 {
+      font-style: normal;
+      font-family: var(--font-mono);
+    }
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 1rem;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .project-list {
+    border-bottom: 1px solid var(--line);
+  }
+  .project-item {
+    position: relative;
+    padding: 2.5rem;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    overflow: hidden;
+  }
+  .project-item:last-child {
+    border-bottom: none;
+  }
+  .project-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .project-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .project-title {
+    font-size: 3.5rem;
+    font-family: var(--font-grotesk);
+    text-transform: uppercase;
+  }
+  .project-cat {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--line);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    transition: border-color 0.3s;
+  }
+</style>
