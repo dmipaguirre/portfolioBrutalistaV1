@@ -24,8 +24,7 @@ import "../styles/global.css";
           ></path><path d="M12 12l-4 -2.25l-4 -2.25"></path><path
             d="M20 12l-4 2v4.75"></path><path d="M4 12l4 2l0 4.75"></path><path
             d="M8 5.25l4 2.25l4 -2.25"></path></svg
-        ><h3>Works</h3></i
-      >
+        ><h3>Works</h3></i>
     </div>
     <span class="dot"></span>
   </div>
@@ -130,6 +129,7 @@ import "../styles/global.css";
     cursor: pointer;
     transition: all 0.5s ease;
     overflow: hidden;
+    z-index: 1;
   }
   .project-item:last-child {
     border-bottom: none;
@@ -162,4 +162,26 @@ import "../styles/global.css";
     border-radius: 999px;
     transition: border-color 0.3s;
   }
+
+  .project-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #0b35ee 0%, #bfb4ca 100%);
+    transition: right 0.3s ease;
+    z-index: -1;
+  }
+  .project-item:hover::before {
+    right: 0;
+  }
+
+  .project-item:hover .project-title,
+  .project-item:hover .project-cat {
+    transition: all 0.3s ease;
+    color: var(--bg);
+  }
+
 </style>
