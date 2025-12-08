@@ -37,7 +37,7 @@ function updateNavbar() {
         if (navbar && scrollLabel) {
           navbar.classList.toggle("scrolled", window.scrollY > 50);
           scrollLabel.textContent =
-            window.scrollY > 50 ? "SCROLL_ACTIVE" : "TOP_VIEW";
+            window.scrollY > 50 ? "[SCROLL_ACTIVE]" : "[TOP_VIEW]";
         }
         ticking = false;
       });
@@ -49,10 +49,10 @@ function updateNavbar() {
 <nav id="navbar" class="navbar">
   <div>
     <span class="nav-indicator"></span>DUB_DEV
-    <span>///</span> JUNIOR
+    <span>[]</span> JUNIOR
   </div>
   <div>
-    <span class="text-section" id="scroll-label">TOP VIEW</span>
+    <span class="text-section" id="scroll-label">[TOP VIEW]</span>
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
       <span id="theme-icon">
         <svg
@@ -82,7 +82,7 @@ function updateNavbar() {
     align-items: center;
     z-index: 100;
     transition: all 0.3s ease;
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
 
     /* Estado inicial: Transparente + Mix Blend Difference */
     background-color: transparent;
@@ -130,7 +130,7 @@ function updateNavbar() {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 0.875rem;
     letter-spacing: 0.1em;
   }
