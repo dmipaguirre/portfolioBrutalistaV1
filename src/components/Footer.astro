@@ -4,10 +4,10 @@ import "../styles/global.css";
 // 1. Definimos tus palabras distintas
 const words = [
   "Diseño UI/UX",
-  "Desarrollo Web", 
+  "Desarrollo Web",
   "Estrategia",
   "Branding",
-  "Astro Build"
+  "Astro Build",
 ];
 
 // 2. Duplicamos el array para crear el efecto bucle infinito
@@ -16,12 +16,17 @@ const carouselContent = [...words, ...words];
 ---
 
 <footer class="footer-container" aria-hidden="true">
-  <div class="carrusel-track">
-    {carouselContent.map((text) => (
-      <div class="carrusel-item">
-        <p>{text}<span class="spacer">—</span></p>
-      </div>
-    ))}
+  <div class="text-carrusel-container">
+    {
+      carouselContent.map((text) => (
+        <div class="text-carrusel-content">
+          <p>
+            {text}
+            <span class="spacer">—</span>
+          </p>
+        </div>
+      ))
+    }
   </div>
 </footer>
 
@@ -35,51 +40,46 @@ const carouselContent = [...words, ...words];
     background: var(--bg-color, transparent);
   }
 
-  .carrusel-track {
+  .text-carrusel-container {
     display: flex;
-    width: max-content; /* El ancho se ajusta al contenido total */
-    /* La magia: movemos el track la mitad de su tamaño total */
-    animation: scroll-left 20s linear infinite;
-    will-change: transform;
+    width: fit-content;
+    pointer-events: none;
+    /* Se establece una duración más legible (12s) */
+    animation: carrusel-infinite 9s linear infinite;
   }
 
-  /* Pausar animación al pasar el mouse (opcional, buen detalle UX) */
-  .footer-container:hover .carrusel-track {
-    animation-play-state: paused;
+  /* Contenido individual */
+  .text-carrusel-content {
+    /* Opacidad aumentada para mejor visibilidad */
+    opacity: 0.5;
+    display: flex;
   }
 
-  .carrusel-item {
+  .text-carrusel-content p {
+    pointer-events: none;
     display: flex;
     align-items: center;
-    opacity: 0.1; /* Opacidad aplicada aquí */
-    flex-shrink: 0; /* Evita que los items se aplasten */
-  }
-
-  .carrusel-item p {
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    font-size: 5vw; /* Tamaño de fuente responsivo */
     white-space: nowrap;
     font-weight: 700;
     text-transform: uppercase;
     margin: 0;
-    font-family: var(--font-mono, sans-serif);
-    display: flex; /* Para alinear el guion */
+    padding: 0;
+    font-family: var(--font-mono);
+    color: white; /* Asegurar visibilidad */
   }
 
   .spacer {
-    padding: 0 3vw;
-    font-weight: 300;
+    padding: 0 3vw; /* Espacio entre las repeticiones del texto */
   }
 
-  @keyframes scroll-left {
+  /* Keyframes para la animación infinita de izquierda a derecha */
+  @keyframes carrusel-infinite {
     0% {
       transform: translateX(0);
     }
+    /* Mueve el carrusel la distancia de UN SOLO bloque de contenido (25% del total, ya que hay 4 bloques). Esto crea el loop. */
     100% {
-      /* IMPORTANTE: Movemos -50% porque el contenedor tiene 
-         la lista duplicada (2 sets). Al llegar al 50%, 
-         el inicio del "Set 2" está exactamente donde empezó el "Set 1",
-         haciendo el reinicio invisible.
-      */
       transform: translateX(-50%);
     }
   }
