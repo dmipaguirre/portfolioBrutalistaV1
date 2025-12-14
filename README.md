@@ -1,46 +1,70 @@
-# Astro Starter Kit: Basics
+# Portfolio Brutalista V1
 
-```sh
-pnpm create astro@latest -- --template basics
+Un portfolio personal minimalista y brutalista construido con Astro, enfocándose en diseño limpio, tipografía fuerte y experiencia de usuario fluida.
+
+## 🚀 Características
+
+- **Diseño Brutalista**: Estilo minimalista con bordes definidos, tipografía monoespaciada y paleta de colores neutra.
+- **Tema Oscuro/Claro**: Toggle de tema con persistencia.
+- **Responsive**: Layout adaptable a móviles y desktop.
+- **Performance**: Generado estáticamente con Astro para carga rápida.
+- **Componentes Modulares**: Estructura organizada con layouts y componentes reutilizables.
+
+## 🛠️ Tecnologías
+
+- **Framework**: Astro 5.16.3
+- **Lenguajes**: HTML, CSS, JavaScript/TypeScript
+- **Herramientas**: pnpm, Vite
+- **Fuentes**: JetBrains Mono, Space Grotesk (locales)
+
+## 📁 Estructura del Proyecto
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── fonts/          # Fuentes locales
+│   └── images/         # Imágenes del portfolio
+├── src/
+│   ├── components/     # Componentes reutilizables (NavBar, Hero, Content, etc.)
+│   ├── layouts/        # Layouts base y específicos (Layout.astro, LayoutContent.astro)
+│   ├── pages/          # Páginas del sitio (index.astro)
+│   └── styles/         # Estilos globales (global.css)
+├── astro.config.mjs    # Configuración de Astro
+├── package.json        # Dependencias y scripts
+└── tsconfig.json       # Configuración TypeScript
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧞 Comandos
 
-## 🧞 Commands
+Todos los comandos se ejecutan desde la raíz del proyecto:
 
-All commands are run from the root of the project, from a terminal:
+| Comando              | Acción                                      |
+| :------------------- | :------------------------------------------ |
+| `pnpm install`       | Instala dependencias                        |
+| `pnpm dev`           | Inicia servidor de desarrollo en localhost:4321 |
+| `pnpm build`         | Construye el sitio para producción          |
+| `pnpm preview`       | Previsualiza el build localmente            |
+| `pnpm astro check`   | Valida TypeScript y Astro                   |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 🎨 Personalización
 
-## 👀 Want to learn more?
+- **Tema**: Edita variables CSS en `src/styles/global.css` para colores y fuentes.
+- **Contenido**: Actualiza componentes en `src/components/` para cambiar texto, imágenes o enlaces.
+- **Layouts**: Modifica `src/layouts/` para ajustar estructura de páginas.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📝 Notas de Desarrollo
+
+- Usa `pnpm` para consistencia con el lockfile.
+- El proyecto usa slots en layouts para flexibilidad.
+- Imágenes optimizadas con Astro's built-in image handling.
+
+## 👀 Próximos Pasos
+
+- Añadir páginas de proyectos individuales.
+- Implementar blog con Markdown.
+- Añadir animaciones más avanzadas.
+- Integrar con CMS o headless CMS.
+
+---
+
+Creado con ❤️ por Miguel Páez Aguirre.
