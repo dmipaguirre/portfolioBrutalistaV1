@@ -1,70 +1,86 @@
 ---
 import "../styles/global.css";
+
+// 1. Definimos tus palabras distintas
+const words = [
+  "Diseño UI/UX",
+  "Desarrollo Web", 
+  "Estrategia",
+  "Branding",
+  "Astro Build"
+];
+
+// 2. Duplicamos el array para crear el efecto bucle infinito
+// Al poner [...words, ...words], tenemos la lista dos veces seguida.
+const carouselContent = [...words, ...words];
 ---
 
-<div class="footer-container">
-  <div class="text-carrusel-container">
-    <div class="text-carrusel-content">
-      <p>Miguel Páez Aguirre<span class="spacer">—</span></p>
-    </div>
-    <div class="text-carrusel-content">
-      <p>Miguel Páez Aguirre<span class="spacer">—</span></p>
-    </div>
-    <div class="text-carrusel-content">
-      <p>Miguel Páez Aguirre<span class="spacer">—</span></p>
-    </div>
-        <div class="text-carrusel-content">
-      <p>Miguel Páez Aguirre<span class="spacer">—</span></p>
-    </div>
+<footer class="footer-container" aria-hidden="true">
+  <div class="carrusel-track">
+    {carouselContent.map((text) => (
+      <div class="carrusel-item">
+        <p>{text}<span class="spacer">—</span></p>
+      </div>
+    ))}
   </div>
-</div>
+</footer>
 
 <style>
   .footer-container {
     width: 100%;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--line, #ccc);
     padding: 1rem 0;
     position: relative;
     overflow: hidden;
-  }
-  
-  .text-carrusel-container {
-    display: flex;
-    width: fit-content;
-    pointer-events: none;
-  }
-  
-  .text-carrusel-content {
-    opacity: 0.1;
-    display: flex;
-    animation: carrusel-infinite 8s linear infinite;
+    background: var(--bg-color, transparent);
   }
 
-  .text-carrusel-content p {
-    pointer-events: none;
+  .carrusel-track {
+    display: flex;
+    width: max-content; /* El ancho se ajusta al contenido total */
+    /* La magia: movemos el track la mitad de su tamaño total */
+    animation: scroll-left 20s linear infinite;
+    will-change: transform;
+  }
+
+  /* Pausar animación al pasar el mouse (opcional, buen detalle UX) */
+  .footer-container:hover .carrusel-track {
+    animation-play-state: paused;
+  }
+
+  .carrusel-item {
     display: flex;
     align-items: center;
-    font-size: 5vw;
+    opacity: 0.1; /* Opacidad aplicada aquí */
+    flex-shrink: 0; /* Evita que los items se aplasten */
+  }
+
+  .carrusel-item p {
+    font-size: clamp(1.5rem, 4vw, 4rem);
     white-space: nowrap;
     font-weight: 700;
     text-transform: uppercase;
     margin: 0;
-    padding: 0;
-    font-family: var(--font-mono);
-    
+    font-family: var(--font-mono, sans-serif);
+    display: flex; /* Para alinear el guion */
   }
 
   .spacer {
     padding: 0 3vw;
+    font-weight: 300;
   }
 
-  @keyframes carrusel-infinite {
+  @keyframes scroll-left {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100%);
+      /* IMPORTANTE: Movemos -50% porque el contenedor tiene 
+         la lista duplicada (2 sets). Al llegar al 50%, 
+         el inicio del "Set 2" está exactamente donde empezó el "Set 1",
+         haciendo el reinicio invisible.
+      */
+      transform: translateX(-50%);
     }
   }
 </style>
-
